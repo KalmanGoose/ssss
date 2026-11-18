@@ -5,7 +5,7 @@
 ## 手機快速檢視（Mobile Quick Links）
 
 * **直接看簡報投影片（支援手機左右滑動翻頁、最後一頁收錄 15 篇精選核心文獻）**：
-  https://kalmangoose.github.io/my-favorite-course-slides/
+  https://kalmangoose.github.io/ssss/
 * **閱讀完整中英講稿＋假設語氣／現在完成式筆記**：
   [口頭報告_My_Favorite_Course.md](./口頭報告_My_Favorite_Course.md)
 * **查看精選 15 篇課程與匹克球／體感 AI 參考文獻清單**：
