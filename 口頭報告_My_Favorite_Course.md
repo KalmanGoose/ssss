@@ -13,10 +13,10 @@
 
 ### 【Slide 1】
 Hi everyone, and Professor.
-Quick question—have you ever used ChatGPT?
-Today I want to talk about my favorite class: *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
-Most of us use Artificial Intelligence every day.
-But here's the thing he said on day one: unless you know how it actually works, you're just a user. If you understand the ideas behind it, you can build things yourself.
+Quick question—have you ever played pickleball?
+Actually, I built this pickleball game where you play against an Artificial Intelligence opponent—you can scan the QR code on the screen to try it.
+To train smarter opponents like that, my favorite class is *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
+Here's the thing he said on day one: unless you know how it actually works, you're just a user. If you understand the ideas behind it, you can build games and tools yourself.
 
 ### 【Slide 2】
 Honestly, before I found this class, Artificial Intelligence had been a total mystery to me.
@@ -66,14 +66,14 @@ Thanks for listening!
 ### 【Slide 1】
 * Hi everyone, and Professor.
   > 嗨，各位同學跟教授好。
-* Quick question—**have you ever used** ChatGPT? `【Unit 2.2 現在完成式：ever】`
-  > 先問大家一個問題——你們曾經用過 ChatGPT 嗎？
-* Today I want to talk about my favorite class: *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
-  > 今天我想聊一門我最喜歡的課：臺大李宏毅教授的《生成式人工智慧與機器學習導論》。
-* Most of us use Artificial Intelligence every day.
-  > 我們大多數人每天都在用人工智慧。
-* But here's the thing he said on day one: **unless** you know how it actually works, you're just a user. **If** you understand the ideas behind it, you can build things yourself. `【Unit 4.4 條件句：unless / if】`
-  > 但教授在第一天就點出一件事：除非你知道它背後怎麼運作，否則你永遠只是個使用者；只要你懂原理，你也能自己動手做東西。
+* Quick question—**have you ever played** pickleball? `【Unit 2.2 現在完成式：ever】`
+  > 先問大家一個問題——你們曾經打過匹克球嗎？
+* Actually, I built this pickleball game where you play against an Artificial Intelligence opponent—you can scan the QR code on the screen to try it.
+  > 其實我做了一款讓你跟人工智慧對手對戰的匹克球遊戲——你們可以掃螢幕上的 QR Code 來試玩。
+* To train smarter opponents like that, my favorite class is *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
+  > 為了訓練出更聰明的對手，我最喜歡的課就是臺大李宏毅教授的《生成式人工智慧與機器學習導論》。
+* Here's the thing he said on day one: **unless** you know how it actually works, you're just a user. **If** you understand the ideas behind it, you can build games and tools yourself. `【Unit 4.4 條件句：unless / if】`
+  > 他在第一天講過一個重點：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。
 
 ### 【Slide 2】
 * Honestly, before I found this class, Artificial Intelligence **had been** a total mystery to me. `【課綱：had been】`
