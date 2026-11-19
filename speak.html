@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>口說英語練習 | Speaking Studio</title>
+  <title>My Favorite Course — 口說跟讀練習器</title>
   <style>
     :root {
       --bg: #0b1120;
@@ -21,7 +21,7 @@
       --amber: #fbbf24;
       --red: #fb7185;
       --red-soft: rgba(251, 113, 133, 0.18);
-      --radius: 18px;
+      --radius: 16px;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
@@ -45,7 +45,7 @@
       display: flex;
       flex-direction: column;
       height: 100dvh;
-      max-width: 680px;
+      max-width: 1200px;
       margin: 0 auto;
       padding-top: var(--safe-top);
     }
@@ -55,7 +55,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 14px 6px;
+      padding: 8px 14px 6px;
       gap: 8px;
       flex-shrink: 0;
     }
@@ -65,7 +65,7 @@
       align-items: center;
       gap: 8px;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: -0.01em;
     }
 
@@ -78,15 +78,21 @@
       border-radius: 7px;
     }
 
-    .timer-pill {
+    .top-right {
       display: flex;
       align-items: center;
       gap: 6px;
+    }
+
+    .timer-pill {
+      display: flex;
+      align-items: center;
+      gap: 5px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 999px;
       padding: 4px 10px;
-      font-size: 13px;
+      font-size: 12px;
       font-variant-numeric: tabular-nums;
       color: var(--text);
     }
@@ -97,7 +103,7 @@
       color: var(--accent);
       font-size: 12px;
       font-weight: 700;
-      padding: 2px 4px;
+      padding: 1px 4px;
       cursor: pointer;
     }
 
@@ -105,7 +111,7 @@
     .pack-tabs {
       display: flex;
       gap: 6px;
-      padding: 4px 14px 8px;
+      padding: 2px 14px 6px;
       overflow-x: auto;
       scrollbar-width: none;
       flex-shrink: 0;
@@ -118,8 +124,8 @@
       color: var(--text-muted);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
+      padding: 5px 11px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
@@ -131,12 +137,104 @@
       border-color: rgba(56, 189, 248, 0.45);
     }
 
+    /* Main Workspace Layout */
+    .workspace {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Synced Slide Preview Pane */
+    .slide-pane {
+      flex-shrink: 0;
+      padding: 0 14px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .slide-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .slide-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-status {
+      font-weight: 700;
+      color: #cbd5e1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .mini-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 7px;
+      padding: 3px 8px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .mini-btn:active, .mini-btn.active {
+      color: var(--accent);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .slide-viewport {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .slide-pane.collapsed .slide-viewport {
+      display: none;
+    }
+
+    .slide-viewport iframe {
+      width: 1280px;
+      height: 720px;
+      border: none;
+      transform-origin: 0 0;
+      display: block;
+      background: #0f172a;
+    }
+
+    /* Practice Side */
+    .practice-pane {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
     /* Sub-filter / Slide jump */
     .subbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 14px 8px;
+      padding: 0 14px 6px;
       gap: 8px;
       flex-shrink: 0;
     }
@@ -155,8 +253,8 @@
       color: var(--text-muted);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 4px 9px;
-      font-size: 12px;
+      padding: 3px 8px;
+      font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
     }
@@ -178,7 +276,7 @@
     .stage {
       flex: 1;
       overflow-y: auto;
-      padding: 2px 14px 14px;
+      padding: 0 14px 12px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -188,11 +286,11 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 14px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+      gap: 11px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
     }
 
     .card-meta {
@@ -229,8 +327,8 @@
       border: 1px solid var(--border);
       color: var(--text-muted);
       border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 12px;
+      padding: 3px 9px;
+      font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
       display: flex;
@@ -248,18 +346,18 @@
     .mode-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
+      gap: 5px;
       background: var(--bg);
-      padding: 4px;
-      border-radius: 12px;
+      padding: 3px;
+      border-radius: 11px;
     }
 
     .mode-btn {
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 6px 4px;
-      border-radius: 9px;
+      padding: 5px 4px;
+      border-radius: 8px;
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
@@ -272,12 +370,12 @@
 
     /* Sentence Display */
     .en-box {
-      font-size: 21px;
-      line-height: 1.55;
+      font-size: 19px;
+      line-height: 1.5;
       font-weight: 600;
       letter-spacing: -0.01em;
       color: #ffffff;
-      min-height: 76px;
+      min-height: 58px;
       word-break: break-word;
     }
 
@@ -315,29 +413,29 @@
     .pause-slash {
       color: var(--amber);
       font-weight: 400;
-      font-size: 16px;
+      font-size: 15px;
       margin: 0 3px;
-      opacity: 0.75;
+      opacity: 0.78;
     }
 
     .blind-box {
       background: rgba(15, 23, 42, 0.7);
       border: 1px dashed rgba(148, 163, 184, 0.3);
       border-radius: 12px;
-      padding: 16px;
+      padding: 14px;
       text-align: center;
       color: var(--text-muted);
-      font-size: 14px;
+      font-size: 13.5px;
       cursor: pointer;
     }
 
     .zh-box {
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.5;
       color: #cbd5e1;
       background: rgba(15, 23, 42, 0.5);
       border-left: 3px solid var(--accent);
-      padding: 10px 12px;
+      padding: 8px 11px;
       border-radius: 0 10px 10px 0;
     }
 
@@ -345,18 +443,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-muted);
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
     .mini-toggle {
       background: none;
       border: none;
       color: var(--accent);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
-      padding: 2px 6px;
+      padding: 2px 5px;
     }
 
     /* Speech Recognition Result */
@@ -364,10 +464,10 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 12px 14px;
+      padding: 11px 13px;
       display: none;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
     }
 
     .eval-card.show {
@@ -378,12 +478,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
     }
 
     .score-pill {
-      padding: 3px 9px;
+      padding: 2px 9px;
       border-radius: 999px;
       font-size: 12px;
     }
@@ -393,8 +493,8 @@
     .score-low { background: var(--red-soft); color: var(--red); }
 
     .diff-line {
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 14.5px;
+      line-height: 1.55;
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
@@ -413,16 +513,16 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 14px;
+      padding: 12px;
       display: none;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
     .custom-panel.show { display: flex; }
 
     .custom-textarea {
       width: 100%;
-      min-height: 120px;
+      min-height: 110px;
       background: var(--bg);
       color: var(--text);
       border: 1px solid var(--border);
@@ -444,7 +544,7 @@
       color: #0b1120;
       border: none;
       border-radius: 10px;
-      padding: 8px 14px;
+      padding: 7px 14px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
@@ -456,10 +556,10 @@
       background: rgba(19, 28, 49, 0.96);
       backdrop-filter: blur(12px);
       border-top: 1px solid var(--border);
-      padding: 8px 12px calc(10px + var(--safe-bottom));
+      padding: 7px 12px calc(8px + var(--safe-bottom));
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
     }
 
     .controls-top {
@@ -479,8 +579,8 @@
       border: 1px solid var(--border);
       color: var(--text-muted);
       border-radius: 8px;
-      padding: 5px 9px;
-      font-size: 12px;
+      padding: 4px 8px;
+      font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
     }
@@ -494,7 +594,7 @@
     .actions-row {
       display: grid;
       grid-template-columns: 0.9fr 1.2fr 1.2fr 0.9fr;
-      gap: 8px;
+      gap: 7px;
     }
 
     .act-btn {
@@ -503,19 +603,19 @@
       align-items: center;
       justify-content: center;
       gap: 2px;
-      height: 52px;
-      border-radius: 14px;
+      height: 48px;
+      border-radius: 13px;
       border: 1px solid var(--border);
       background: var(--surface-2);
       color: var(--text);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.08s ease;
     }
 
     .act-btn:active { transform: scale(0.96); }
-    .act-btn .ico { font-size: 17px; line-height: 1; }
+    .act-btn .ico { font-size: 16px; line-height: 1; }
 
     .act-btn.primary {
       background: linear-gradient(135deg, #0284c7, #2563eb);
@@ -544,6 +644,33 @@
       0% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0.55); }
       70% { box-shadow: 0 0 0 10px rgba(251, 113, 133, 0); }
       100% { box-shadow: 0 0 0 0 rgba(251, 113, 133, 0); }
+    }
+
+    /* Desktop / iPad Split View */
+    @media (min-width: 900px) {
+      .workspace {
+        flex-direction: row;
+        gap: 12px;
+        padding: 4px 14px 8px;
+      }
+      .slide-pane {
+        width: 56%;
+        padding: 0;
+        justify-content: flex-start;
+      }
+      .slide-pane.collapsed {
+        width: auto;
+      }
+      .practice-pane {
+        flex: 1;
+      }
+      .subbar, .stage {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .en-box {
+        font-size: 21px;
+      }
     }
 
     .toast {
@@ -575,80 +702,100 @@
     <header class="topbar">
       <div class="brand">
         <span class="brand-badge">SPEAK</span>
-        <span>英語口說隨身練</span>
+        <span>My Favorite Course 口說練習</span>
       </div>
-      <div class="timer-pill">
-        <span id="timerDisplay">00:00</span>
-        <button class="timer-btn" id="timerToggle">開始</button>
-        <button class="timer-btn" id="timerReset" style="color:var(--text-muted)">歸零</button>
+      <div class="top-right">
+        <div class="timer-pill">
+          <span id="timerDisplay">00:00</span>
+          <button class="timer-btn" id="timerToggle">開始</button>
+          <button class="timer-btn" id="timerReset" style="color:var(--text-muted)">歸零</button>
+        </div>
       </div>
     </header>
 
     <div class="pack-tabs" id="packTabs">
-      <button class="pack-tab active" data-pack="presentation">🎤 報告逐字稿</button>
-      <button class="pack-tab" data-pack="qa">💬 課堂 QA 會話</button>
-      <button class="pack-tab" data-pack="daily">☕ 日常口說練習</button>
-      <button class="pack-tab" data-pack="custom">✏️ 自訂貼上</button>
+      <button class="pack-tab active" data-pack="presentation">🎤 報告逐字稿 (同步簡報)</button>
+      <button class="pack-tab" data-pack="qa">💬 課堂 QA</button>
+      <button class="pack-tab" data-pack="daily">☕ 日常會話</button>
+      <button class="pack-tab" data-pack="custom">✏️ 自訂</button>
     </div>
 
-    <div class="subbar">
-      <div class="slide-pills" id="slidePills"></div>
-      <div class="progress-text" id="progressText">1 / 33</div>
-    </div>
-
-    <main class="stage" id="stage">
-      <!-- Custom editor (only visible on custom tab when toggled or empty) -->
-      <div class="custom-panel" id="customPanel">
-        <div style="font-size:13px;font-weight:700;color:var(--accent)">貼上想練的英文句子或對話（每行一句，可用 | 加上中文翻譯）</div>
-        <textarea class="custom-textarea" id="customInput" placeholder="例如：&#10;Have you ever tried pickleball? | 你打過匹克球嗎？&#10;I've been working on this project since September. | 我從九月就開始做這個專題了。"></textarea>
-        <div class="custom-actions">
-          <button class="chip-btn" id="customCloseBtn">收起編輯</button>
-          <button class="btn-sm" id="customSaveBtn">套用開始練習</button>
+    <div class="workspace">
+      <!-- Synced slides.html Preview -->
+      <section class="slide-pane" id="slidePane">
+        <div class="slide-bar">
+          <div class="slide-bar-left">
+            <span class="slide-status" id="slideStatus">📺 投影片同步中：Slide 1 / 8</span>
+            <button class="mini-btn" id="slidePrevBtn" title="上一張投影片">◀</button>
+            <button class="mini-btn" id="slideNextBtn" title="下一張投影片">▶</button>
+          </div>
+          <div class="slide-bar-left">
+            <button class="mini-btn" id="toggleSlidePaneBtn">收起畫面</button>
+            <a class="mini-btn" href="slides.html" target="_blank" rel="noopener">原版簡報 ↗</a>
+          </div>
         </div>
+        <div class="slide-viewport" id="slideViewport">
+          <iframe id="slideFrame" src="slides.html" title="My Favorite Course Slides"></iframe>
+        </div>
+      </section>
+
+      <!-- Practice Controls & Card -->
+      <div class="practice-pane">
+        <div class="subbar">
+          <div class="slide-pills" id="slidePills"></div>
+          <div class="progress-text" id="progressText">1 / 33</div>
+        </div>
+
+        <main class="stage" id="stage">
+          <div class="custom-panel" id="customPanel">
+            <div style="font-size:12.5px;font-weight:700;color:var(--accent)">貼上想練的英文句子（每行一句，可用 | 加上中文翻譯）</div>
+            <textarea class="custom-textarea" id="customInput" placeholder="例如：&#10;Have you ever played pickleball? | 你打過匹克球嗎？&#10;I've followed this course since September. | 我從九月就開始追蹤這門課。"></textarea>
+            <div class="custom-actions">
+              <button class="chip-btn" id="customCloseBtn">收起</button>
+              <button class="btn-sm" id="customSaveBtn">套用開始練習</button>
+            </div>
+          </div>
+
+          <section class="card" id="mainCard">
+            <div class="card-meta">
+              <div class="meta-left">
+                <span class="badge" id="unitBadge">Slide 1</span>
+                <span class="badge badge-grammar" id="tagBadge">開場</span>
+              </div>
+              <button class="mastered-btn" id="masteredBtn">✓ 標記熟練</button>
+            </div>
+
+            <div class="mode-row">
+              <button class="mode-btn active" data-mode="full">👁️ 全文</button>
+              <button class="mode-btn" data-mode="keywords">🔑 關鍵字</button>
+              <button class="mode-btn" data-mode="blind">🧠 盲講</button>
+            </div>
+
+            <div id="enContainer" class="en-box"></div>
+            <div class="zh-box" id="zhBox"></div>
+
+            <div class="tip-row">
+              <span>點單字可單獨發音 · 左右滑動換句</span>
+              <div>
+                <button class="mini-toggle" id="toggleEditCustom" style="display:none">編輯內容</button>
+                <button class="mini-toggle" id="togglePause">斷句：開</button>
+                <button class="mini-toggle" id="toggleZh">中文：開</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="eval-card" id="evalCard">
+            <div class="eval-header">
+              <span>🎙️ 跟讀即時比對</span>
+              <span class="score-pill" id="scorePill">100%</span>
+            </div>
+            <div class="diff-line" id="diffLine"></div>
+            <div class="heard-raw" id="heardRaw"></div>
+          </section>
+        </main>
       </div>
+    </div>
 
-      <!-- Main Sentence Card -->
-      <section class="card" id="mainCard">
-        <div class="card-meta">
-          <div class="meta-left">
-            <span class="badge" id="unitBadge">Slide 1</span>
-            <span class="badge badge-grammar" id="tagBadge">開場</span>
-          </div>
-          <button class="mastered-btn" id="masteredBtn">✓ 標記熟練</button>
-        </div>
-
-        <div class="mode-row">
-          <button class="mode-btn active" data-mode="full">👁️ 全文</button>
-          <button class="mode-btn" data-mode="keywords">🔑 關鍵字</button>
-          <button class="mode-btn" data-mode="blind">🧠 盲講</button>
-        </div>
-
-        <div id="enContainer" class="en-box"></div>
-
-        <div class="zh-box" id="zhBox"></div>
-
-        <div class="tip-row">
-          <span>點單字可單獨發音 · 左右滑動換句</span>
-          <div>
-            <button class="mini-toggle" id="toggleEditCustom" style="display:none">編輯內容</button>
-            <button class="mini-toggle" id="togglePause">斷句：開</button>
-            <button class="mini-toggle" id="toggleZh">中文：開</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Speech Eval Result -->
-      <section class="eval-card" id="evalCard">
-        <div class="eval-header">
-          <span>🎙️ 跟讀即時比對</span>
-          <span class="score-pill" id="scorePill">100%</span>
-        </div>
-        <div class="diff-line" id="diffLine"></div>
-        <div class="heard-raw" id="heardRaw"></div>
-      </section>
-    </main>
-
-    <!-- Thumb Dock -->
     <footer class="dock">
       <div class="controls-top">
         <div class="speed-group">
@@ -688,54 +835,54 @@
   <script>
     const PACKS = {
       presentation: [
-        { id: "p1", group: "S1", tag: "開場問候", en: "Hello everyone, and Professor. / My topic is my favorite course.", zh: "大家好，教授好。我的報告主題是「我最喜歡的課」。", kw: ["everyone", "Professor", "topic", "favorite", "course"] },
-        { id: "p2", group: "S1", tag: "作品加分", en: "Since our professor said sharing a personal project can earn bonus points, / let me apologize for a quick second— / I'm going to open Safari right now and show you my work!", zh: "因為老師說帶來個人才藝或作品可以加分，所以不好意思打擾一下——我現在要打開 Safari，展示我的作品給大家看！", kw: ["Since", "personal", "project", "bonus", "apologize", "Safari", "show"] },
-        { id: "p3", group: "S1", tag: "Unit 2.2: ever", en: "I have a quick question— / have you ever played pickleball?", zh: "我想先問大家一個問題——你們曾經打過匹克球嗎？", kw: ["quick", "question", "have", "ever", "played", "pickleball"] },
-        { id: "p4", group: "S1", tag: "比賽專題", en: "Actually, I built a project that's in a coding competition right now— / this pickleball game where you play against an Artificial Intelligence opponent.", zh: "其實我做了一個正在參加程式比賽的專題——就是這款讓你跟人工智慧對手對戰的匹克球遊戲。", kw: ["built", "coding", "competition", "pickleball", "Artificial", "Intelligence", "opponent"] },
-        { id: "p5", group: "S1", tag: "QR Code 互動", en: "You can scan the QR code on the screen to try it.", zh: "你們可以掃螢幕上的 QR Code 來試玩。", kw: ["scan", "QR", "code", "screen", "try"] },
-        { id: "p6", group: "S1", tag: "主題銜接", en: "And this project is closely connected to my topic— / it gave me a lot of ideas to take Introduction to Generative AI and Machine Learning by Professor Hung-yi Lee at NTU.", zh: "而且這個專題跟我的報告主題有很大的關係——它給了我很多靈感發想，讓我去修臺大李宏毅教授的《生成式人工智慧與機器學習導論》。", kw: ["connected", "ideas", "Generative", "AI", "Machine", "Learning", "NTU"] },
-        { id: "p7", group: "S1", tag: "Unit 4.4: unless / if", en: "Here's what he said on day one: / unless you know how AI actually works, you're just a user. / If you understand the ideas behind it, you can build games and tools yourself.", zh: "他在第一天講過一個重點：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。", kw: ["unless", "works", "user", "If", "understand", "build", "yourself"] },
+        { id: "p1", group: "S1", slide: 1, tag: "開場問候", en: "Hello everyone, and Professor. / My topic is my favorite course.", zh: "大家好，教授好。我的報告主題是「我最喜歡的課」。", kw: ["everyone", "Professor", "topic", "favorite", "course"] },
+        { id: "p2", group: "S1", slide: 1, tag: "作品加分", en: "Since our professor said sharing a personal project can earn bonus points, / let me apologize for a quick second— / I'm going to open Safari right now and show you my work!", zh: "因為老師說帶來個人才藝或作品可以加分，所以不好意思打擾一下——我現在要打開 Safari，展示我的作品給大家看！", kw: ["Since", "personal", "project", "bonus", "apologize", "Safari", "show"] },
+        { id: "p3", group: "S1", slide: 1, tag: "Unit 2.2: ever", en: "I have a quick question— / have you ever played pickleball?", zh: "我想先問大家一個問題——你們曾經打過匹克球嗎？", kw: ["quick", "question", "have", "ever", "played", "pickleball"] },
+        { id: "p4", group: "S1", slide: 1, tag: "比賽專題", en: "Actually, I built a project that's in a coding competition right now— / this pickleball game where you play against an Artificial Intelligence opponent.", zh: "其實我做了一個正在參加程式比賽的專題——就是這款讓你跟人工智慧對手對戰的匹克球遊戲。", kw: ["built", "coding", "competition", "pickleball", "Artificial", "Intelligence", "opponent"] },
+        { id: "p5", group: "S1", slide: 1, tag: "QR Code 互動", en: "You can scan the QR code on the screen to try it.", zh: "你們可以掃螢幕上的 QR Code 來試玩。", kw: ["scan", "QR", "code", "screen", "try"] },
+        { id: "p6", group: "S1", slide: 1, tag: "主題銜接", en: "And this project is closely connected to my topic— / it gave me a lot of ideas to take Introduction to Generative AI and Machine Learning by Professor Hung-yi Lee at NTU.", zh: "而且這個專題跟我的報告主題有很大的關係——它給了我很多靈感發想，讓我去修臺大李宏毅教授的《生成式人工智慧與機器學習導論》。", kw: ["connected", "ideas", "Generative", "AI", "Machine", "Learning", "NTU"] },
+        { id: "p7", group: "S1", slide: 1, tag: "Unit 4.4: unless / if", en: "Here's what he said on day one: / unless you know how AI actually works, you're just a user. / If you understand the ideas behind it, you can build games and tools yourself.", zh: "他在第一天講過一個重點：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。", kw: ["unless", "works", "user", "If", "understand", "build", "yourself"] },
 
-        { id: "p8", group: "S2", tag: "過去完成式: had been", en: "Honestly, before I found this class, / Artificial Intelligence had been a total mystery to me.", zh: "老實說，在找到這門課以前，人工智慧對我來說完全是個謎。", kw: ["Honestly", "before", "had", "been", "mystery"] },
-        { id: "p9", group: "S2", tag: "Unit 3: had thought", en: "I had thought machine learning was just scary math.", zh: "我以前一直以為機器學習全都是很可怕的數學。", kw: ["had", "thought", "machine", "learning", "scary", "math"] },
-        { id: "p10", group: "S2", tag: "假設語氣 Type 3", en: "If I hadn't watched his videos, / I probably wouldn't have touched this field at all.", zh: "如果我當初沒看他的影片，我大概根本不會碰這個領域。", kw: ["If", "hadn't", "watched", "wouldn't", "have", "touched", "field"] },
-        { id: "p11", group: "S2", tag: "Unit 2: for / since / already", en: "I've followed his course for a few months now— / and since September, I've already learned so much.", zh: "我已經追蹤這門課好幾個月了——而且從九月到現在，我已經學到超多。", kw: ["followed", "for", "months", "since", "September", "already", "learned"] },
+        { id: "p8", group: "S2", slide: 2, tag: "過去完成式: had been", en: "Honestly, before I found this class, / Artificial Intelligence had been a total mystery to me.", zh: "老實說，在找到這門課以前，人工智慧對我來說完全是個謎。", kw: ["Honestly", "before", "had", "been", "mystery"] },
+        { id: "p9", group: "S2", slide: 2, tag: "Unit 3: had thought", en: "I had thought machine learning was just scary math.", zh: "我以前一直以為機器學習全都是很可怕的數學。", kw: ["had", "thought", "machine", "learning", "scary", "math"] },
+        { id: "p10", group: "S2", slide: 2, tag: "假設語氣 Type 3", en: "If I hadn't watched his videos, / I probably wouldn't have touched this field at all.", zh: "如果我當初沒看他的影片，我大概根本不會碰這個領域。", kw: ["If", "hadn't", "watched", "wouldn't", "have", "touched", "field"] },
+        { id: "p11", group: "S2", slide: 2, tag: "Unit 2: for / since / already", en: "I've followed his course for a few months now— / and since September, I've already learned so much.", zh: "我已經追蹤這門課好幾個月了——而且從九月到現在，我已經學到超多。", kw: ["followed", "for", "months", "since", "September", "already", "learned"] },
 
-        { id: "p12", group: "S3", tag: "教法切入", en: "Why do I like his teaching? / He doesn't throw dry formulas at you.", zh: "我為什麼喜歡他的教法？因為他不會直接丟一堆枯燥的公式給你。", kw: ["Why", "teaching", "doesn't", "dry", "formulas"] },
-        { id: "p13", group: "S3", tag: "轉折引導", en: "Instead, he turns the whole thing into three simple steps with funny cartoons:", zh: "相反地，他用好笑的漫畫把整件事變成三個簡單步驟：", kw: ["Instead", "three", "simple", "steps", "cartoons"] },
-        { id: "p14", group: "S3", tag: "步驟 1", en: "first, / decide what \"good\" means with a loss function;", zh: "第一，用 Loss Function 決定什麼叫做「好」；", kw: ["first", "decide", "good", "loss", "function"] },
-        { id: "p15", group: "S3", tag: "步驟 2", en: "next, / pick a model;", zh: "接著，挑一個模型；", kw: ["next", "pick", "model"] },
-        { id: "p16", group: "S3", tag: "步驟 3", en: "then, / use gradient descent to slowly find the best answer.", zh: "然後，用梯度下降法慢慢找出最佳解。", kw: ["then", "gradient", "descent", "best", "answer"] },
-        { id: "p17", group: "S3", tag: "口語互動", en: "Pretty simple, right?", zh: "很直覺吧？", kw: ["Pretty", "simple", "right"] },
+        { id: "p12", group: "S3", slide: 3, tag: "教法切入", en: "Why do I like his teaching? / He doesn't throw dry formulas at you.", zh: "我為什麼喜歡他的教法？因為他不會直接丟一堆枯燥的公式給你。", kw: ["Why", "teaching", "doesn't", "dry", "formulas"] },
+        { id: "p13", group: "S3", slide: 3, tag: "轉折引導", en: "Instead, he turns the whole thing into three simple steps with funny cartoons:", zh: "相反地，他用好笑的漫畫把整件事變成三個簡單步驟：", kw: ["Instead", "three", "simple", "steps", "cartoons"] },
+        { id: "p14", group: "S3", slide: 3, tag: "步驟 1", en: "first, / decide what \"good\" means with a loss function;", zh: "第一，用 Loss Function 決定什麼叫做「好」；", kw: ["first", "decide", "good", "loss", "function"] },
+        { id: "p15", group: "S3", slide: 3, tag: "步驟 2", en: "next, / pick a model;", zh: "接著，挑一個模型；", kw: ["next", "pick", "model"] },
+        { id: "p16", group: "S3", slide: 3, tag: "步驟 3", en: "then, / use gradient descent to slowly find the best answer.", zh: "然後，用梯度下降法慢慢找出最佳解。", kw: ["then", "gradient", "descent", "best", "answer"] },
+        { id: "p17", group: "S3", slide: 3, tag: "口語互動", en: "Pretty simple, right?", zh: "很直覺吧？", kw: ["Pretty", "simple", "right"] },
 
-        { id: "p18", group: "S4", tag: "圖表引導", en: "Look at this loss curve from class.", zh: "你看課堂上這張 Loss 曲線圖。", kw: ["Look", "loss", "curve", "class"] },
-        { id: "p19", group: "S4", tag: "Unit 4.4: when + if", en: "When you train a model, / if the line goes down like this, / it means the computer is actually learning.", zh: "當你在訓練模型時，如果線像這樣往下降，代表電腦真的在學習。", kw: ["When", "train", "if", "goes", "down", "learning"] },
-        { id: "p20", group: "S4", tag: "條件句: if", en: "If the line gets stuck and stays flat, something is off— / so you tweak your settings and try again.", zh: "如果線卡住不動變平了，就代表哪裡怪怪的——這時就微調設定再試一次。", kw: ["stuck", "flat", "off", "tweak", "settings", "try"] },
-        { id: "p21", group: "S4", tag: "Unit 2.3: make mistakes / do your best", en: "You'll definitely make mistakes at first— / that's normal, / you just do your best and fix them step by step.", zh: "一開始一定會出錯——這很正常，只要盡力做並一步步修正就好。", kw: ["make", "mistakes", "normal", "do", "your", "best", "step"] },
+        { id: "p18", group: "S4", slide: 4, tag: "圖表引導", en: "Look at this loss curve from class.", zh: "你看課堂上這張 Loss 曲線圖。", kw: ["Look", "loss", "curve", "class"] },
+        { id: "p19", group: "S4", slide: 4, tag: "Unit 4.4: when + if", en: "When you train a model, / if the line goes down like this, / it means the computer is actually learning.", zh: "當你在訓練模型時，如果線像這樣往下降，代表電腦真的在學習。", kw: ["When", "train", "if", "goes", "down", "learning"] },
+        { id: "p20", group: "S4", slide: 4, tag: "條件句: if", en: "If the line gets stuck and stays flat, something is off— / so you tweak your settings and try again.", zh: "如果線卡住不動變平了，就代表哪裡怪怪的——這時就微調設定再試一次。", kw: ["stuck", "flat", "off", "tweak", "settings", "try"] },
+        { id: "p21", group: "S4", slide: 4, tag: "Unit 2.3: make mistakes / do your best", en: "You'll definitely make mistakes at first— / that's normal, / you just do your best and fix them step by step.", zh: "一開始一定會出錯——這很正常，只要盡力做並一步步修正就好。", kw: ["make", "mistakes", "normal", "do", "your", "best", "step"] },
 
-        { id: "p22", group: "S5", tag: "現代 AI 應用", en: "He also connects these basics straight to modern Artificial Intelligence— / like how Large Language Models learn from huge text, / and how image models make pictures.", zh: "他也會把這些基礎直接連到現代人工智慧——像是大型語言模型怎麼從海量文字學習，以及影像模型怎麼生圖。", kw: ["connects", "modern", "Large", "Language", "Models", "image", "pictures"] },
-        { id: "p23", group: "S5", tag: "現在完成式: has put", en: "Plus, he's put every single lecture on YouTube for free.", zh: "而且他把每一堂課都免費放在 YouTube 上。", kw: ["Plus", "put", "every", "lecture", "YouTube", "free"] },
-        { id: "p24", group: "S5", tag: "Unit 2.2: never / just", en: "Even if you've never studied coding before, / or you've just started learning, / you can still pick it up anytime.", zh: "就算你以前從沒學過寫程式，或是才剛開始學，隨時都還是能上手。", kw: ["never", "studied", "coding", "just", "started", "pick", "anytime"] },
+        { id: "p22", group: "S5", slide: 5, tag: "現代 AI 應用", en: "He also connects these basics straight to modern Artificial Intelligence— / like how Large Language Models learn from huge text, / and how image models make pictures.", zh: "他也會把這些基礎直接連到現代人工智慧——像是大型語言模型怎麼從海量文字學習，以及影像模型怎麼生圖。", kw: ["connects", "modern", "Large", "Language", "Models", "image", "pictures"] },
+        { id: "p23", group: "S5", slide: 5, tag: "現在完成式: has put", en: "Plus, he's put every single lecture on YouTube for free.", zh: "而且他把每一堂課都免費放在 YouTube 上。", kw: ["Plus", "put", "every", "lecture", "YouTube", "free"] },
+        { id: "p24", group: "S5", slide: 5, tag: "Unit 2.2: never / just", en: "Even if you've never studied coding before, / or you've just started learning, / you can still pick it up anytime.", zh: "就算你以前從沒學過寫程式，或是才剛開始學，隨時都還是能上手。", kw: ["never", "studied", "coding", "just", "started", "pick", "anytime"] },
 
-        { id: "p25", group: "S6", tag: "過去完成式: had never had", en: "Before this class, I had never had the chance to train a real model myself.", zh: "上這門課以前，我從來沒機會自己訓練一個真正的模型。", kw: ["Before", "had", "never", "had", "chance", "train", "myself"] },
-        { id: "p26", group: "S6", tag: "心情轉折", en: "My first few tries failed, / and yeah, I wanted to quit.", zh: "前幾次嘗試都失敗，老實講我那時超想放棄。", kw: ["first", "tries", "failed", "wanted", "quit"] },
-        { id: "p27", group: "S6", tag: "Unit 4.3: give up", en: "But I didn't give up.", zh: "但我撐下來沒有放棄。", kw: ["didn't", "give", "up"] },
-        { id: "p28", group: "S6", tag: "First Conditional + end up", en: "If you keep testing your code, / you'll end up building cool stuff— / like predicting game ratings or customizing AI images.", zh: "只要你不斷測試程式，最後就能做出很酷的東西——像是預測遊戲評分，或客製化 AI 生成圖片。", kw: ["keep", "testing", "end", "up", "building", "predicting", "customizing"] },
-        { id: "p29", group: "S6", tag: "假設語氣 Type 2", en: "If I had more time today, / I'd show you the whole demo live!", zh: "如果今天時間更充裕的話，我就直接現場展示整個作品給大家看！", kw: ["If", "had", "more", "time", "I'd", "show", "live"] },
+        { id: "p25", group: "S6", slide: 6, tag: "過去完成式: had never had", en: "Before this class, I had never had the chance to train a real model myself.", zh: "上這門課以前，我從來沒機會自己訓練一個真正的模型。", kw: ["Before", "had", "never", "had", "chance", "train", "myself"] },
+        { id: "p26", group: "S6", slide: 6, tag: "心情轉折", en: "My first few tries failed, / and yeah, I wanted to quit.", zh: "前幾次嘗試都失敗，老實講我那時超想放棄。", kw: ["first", "tries", "failed", "wanted", "quit"] },
+        { id: "p27", group: "S6", slide: 6, tag: "Unit 4.3: give up", en: "But I didn't give up.", zh: "但我撐下來沒有放棄。", kw: ["didn't", "give", "up"] },
+        { id: "p28", group: "S6", slide: 6, tag: "First Conditional + end up", en: "If you keep testing your code, / you'll end up building cool stuff— / like predicting game ratings or customizing AI images.", zh: "只要你不斷測試程式，最後就能做出很酷的東西——像是預測遊戲評分，或客製化 AI 生成圖片。", kw: ["keep", "testing", "end", "up", "building", "predicting", "customizing"] },
+        { id: "p29", group: "S6", slide: 6, tag: "假設語氣 Type 2", en: "If I had more time today, / I'd show you the whole demo live!", zh: "如果今天時間更充裕的話，我就直接現場展示整個作品給大家看！", kw: ["If", "had", "more", "time", "I'd", "show", "live"] },
 
-        { id: "p30", group: "S7", tag: "課程總結", en: "That's why this class means a lot to me— / it's clear, fun, and hands-on.", zh: "這就是為什麼這門課對我意義很大——它清楚、有趣，又能動手實作。", kw: ["means", "clear", "fun", "hands-on"] },
-        { id: "p31", group: "S7", tag: "Unit 2.2: yet + 未來計畫", en: "I haven't finished all the homework yet, / but I'm going to keep practicing next semester and build more projects.", zh: "我雖然還沒做完所有的作業，但我下學期會繼續練習，做出更多專題。", kw: ["haven't", "finished", "yet", "going", "practicing", "next", "semester"] },
-        { id: "p32", group: "S7", tag: "參考文獻預告", en: "My last slide has all the references I used.", zh: "最後一張投影片是我參考的資料來源。", kw: ["last", "slide", "references", "used"] },
-        { id: "p33", group: "S7", tag: "致謝收尾", en: "Thanks for listening!", zh: "謝謝大家！", kw: ["Thanks", "listening"] }
+        { id: "p30", group: "S7", slide: 7, tag: "課程總結", en: "That's why this class means a lot to me— / it's clear, fun, and hands-on.", zh: "這就是為什麼這門課對我意義很大——它清楚、有趣，又能動手實作。", kw: ["means", "clear", "fun", "hands-on"] },
+        { id: "p31", group: "S7", slide: 7, tag: "Unit 2.2: yet + 未來計畫", en: "I haven't finished all the homework yet, / but I'm going to keep practicing next semester and build more projects.", zh: "我雖然還沒做完所有的作業，但我下學期會繼續練習，做出更多專題。", kw: ["haven't", "finished", "yet", "going", "practicing", "next", "semester"] },
+        { id: "p32", group: "S7", slide: 7, tag: "參考文獻預告", en: "My last slide has all the references I used.", zh: "最後一張投影片是我參考的資料來源。", kw: ["last", "slide", "references", "used"] },
+        { id: "p33", group: "S7", slide: 7, tag: "致謝收尾", en: "Thanks for listening!", zh: "謝謝大家！", kw: ["Thanks", "listening"] }
       ],
 
       qa: [
-        { id: "q1", group: "QA", tag: "教授提問應對", en: "That's a great question! / Let me explain how the AI opponent decides where to hit the ball.", zh: "問得很好！讓我解釋一下 AI 對手是怎麼決定把球打到哪裡的。", kw: ["great", "question", "explain", "opponent", "decides"] },
-        { id: "q2", group: "QA", tag: "時間與開發過程", en: "I've been working on this pickleball game since October, / and I tested different physics settings until it felt natural.", zh: "我從十月就一直在做這款匹克球遊戲，而且我測試了各種物理參數，直到手感很自然為止。", kw: ["working", "since", "October", "tested", "physics", "natural"] },
-        { id: "q3", group: "QA", tag: "克服困難", en: "The hardest part was balancing the AI difficulty— / if it's too fast, players can't return any shots.", zh: "最難的部分是調整 AI 難度——如果太快的話，玩家根本接不到球。", kw: ["hardest", "balancing", "difficulty", "too", "fast", "return"] },
-        { id: "q4", group: "QA", tag: "邀請同學試玩", en: "Feel free to scan the QR code after class! / It runs right inside your phone's browser—no download needed.", zh: "下課後歡迎隨時掃 QR Code 玩看看！直接在手機瀏覽器就能跑，不用下載。", kw: ["Feel", "free", "scan", "runs", "browser", "download"] },
-        { id: "q5", group: "QA", tag: "課程連結回答", en: "What I learned from Professor Lee helped me see AI as a tool I can actually shape, / not just a black box.", zh: "我在李教授課上學到的東西，讓我把 AI 看成一個能親手改造的工具，而不只是黑盒子。", kw: ["learned", "shape", "black", "box"] },
-        { id: "q6", group: "QA", tag: "卡住時怎麼辦", en: "Sorry, could you say that one more time? / I didn't quite catch the last part.", zh: "不好意思，可以請你再說一次嗎？我剛才沒聽清楚最後一句。", kw: ["Sorry", "say", "one", "more", "time", "catch"] }
+        { id: "q1", group: "QA", slide: 1, tag: "教授提問應對", en: "That's a great question! / Let me explain how the AI opponent decides where to hit the ball.", zh: "問得很好！讓我解釋一下 AI 對手是怎麼決定把球打到哪裡的。", kw: ["great", "question", "explain", "opponent", "decides"] },
+        { id: "q2", group: "QA", slide: 1, tag: "時間與開發過程", en: "I've been working on this pickleball game since October, / and I tested different physics settings until it felt natural.", zh: "我從十月就一直在做這款匹克球遊戲，而且我測試了各種物理參數，直到手感很自然為止。", kw: ["working", "since", "October", "tested", "physics", "natural"] },
+        { id: "q3", group: "QA", slide: 6, tag: "克服困難", en: "The hardest part was balancing the AI difficulty— / if it's too fast, players can't return any shots.", zh: "最難的部分是調整 AI 難度——如果太快的話，玩家根本接不到球。", kw: ["hardest", "balancing", "difficulty", "too", "fast", "return"] },
+        { id: "q4", group: "QA", slide: 1, tag: "邀請同學試玩", en: "Feel free to scan the QR code after class! / It runs right inside your phone's browser—no download needed.", zh: "下課後歡迎隨時掃 QR Code 玩看看！直接在手機瀏覽器就能跑，不用下載。", kw: ["Feel", "free", "scan", "runs", "browser", "download"] },
+        { id: "q5", group: "QA", slide: 8, tag: "文獻與課程連結", en: "What I learned from Professor Lee helped me see AI as a tool I can actually shape, / not just a black box.", zh: "我在李教授課上學到的東西，讓我把 AI 看成一個能親手改造的工具，而不只是黑盒子。", kw: ["learned", "shape", "black", "box"] },
+        { id: "q6", group: "QA", slide: 8, tag: "聽不清楚時應對", en: "Sorry, could you say that one more time? / I didn't quite catch the last part.", zh: "不好意思，可以請你再說一次嗎？我剛才沒聽清楚最後一句。", kw: ["Sorry", "say", "one", "more", "time", "catch"] }
       ],
 
       daily: [
@@ -750,7 +897,6 @@
       custom: []
     };
 
-    // Load custom pack from localStorage
     const CUSTOM_STORAGE_KEY = "speak_studio_custom_v1";
     const MASTERED_STORAGE_KEY = "speak_studio_mastered_v1";
 
@@ -772,7 +918,7 @@
       pack: "presentation",
       groupFilter: "ALL",
       index: 0,
-      mode: "full", // full | keywords | blind
+      mode: "full",
       showPause: true,
       showZh: true,
       rate: 1.0,
@@ -782,11 +928,19 @@
       recording: false,
       blindRevealed: false,
       peekedWords: new Set(),
-      mastered: new Set(JSON.parse(localStorage.getItem(MASTERED_STORAGE_KEY) || "[]"))
+      mastered: new Set(JSON.parse(localStorage.getItem(MASTERED_STORAGE_KEY) || "[]")),
+      currentSlideNum: 1,
+      slideCollapsed: false,
+      slideReady: false
     };
 
     // Elements
     const packTabs = document.getElementById("packTabs");
+    const slidePane = document.getElementById("slidePane");
+    const slideViewport = document.getElementById("slideViewport");
+    const slideFrame = document.getElementById("slideFrame");
+    const slideStatus = document.getElementById("slideStatus");
+    const toggleSlidePaneBtn = document.getElementById("toggleSlidePaneBtn");
     const slidePills = document.getElementById("slidePills");
     const progressText = document.getElementById("progressText");
     const unitBadge = document.getElementById("unitBadge");
@@ -818,6 +972,63 @@
       toastEl._t = setTimeout(() => toastEl.classList.remove("show"), 2000);
     }
 
+    // ---- Scale 1280x720 slides.html inside responsive viewport ----
+    function scaleSlideFrame() {
+      if (!slideViewport || state.slideCollapsed) return;
+      const w = slideViewport.clientWidth;
+      if (w > 0) {
+        const s = w / 1280;
+        slideFrame.style.transform = `scale(${s})`;
+      }
+    }
+
+    if (typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(scaleSlideFrame).observe(slideViewport);
+    }
+    window.addEventListener("resize", scaleSlideFrame);
+
+    slideFrame.addEventListener("load", () => {
+      try {
+        const doc = slideFrame.contentDocument;
+        if (doc && doc.head) {
+          const style = doc.createElement("style");
+          style.textContent = `
+            .controls, .progress-track { display: none !important; }
+            .deck { padding: 0 !important; width: 1280px !important; height: 720px !important; background: #0f172a !important; }
+            .slide {
+              width: 1280px !important;
+              height: 720px !important;
+              max-height: 720px !important;
+              border-radius: 0 !important;
+              padding: 36px 46px !important;
+            }
+          `;
+          doc.head.appendChild(style);
+        }
+        state.slideReady = true;
+        syncSlidePreview(state.currentSlideNum);
+      } catch (e) {}
+      scaleSlideFrame();
+    });
+
+    function syncSlidePreview(slideNum) {
+      const clamped = Math.max(1, Math.min(8, slideNum || 1));
+      state.currentSlideNum = clamped;
+      slideStatus.textContent = `📺 Slide ${clamped} / 8`;
+      if (state.slideReady && slideFrame.contentWindow && typeof slideFrame.contentWindow.showSlide === "function") {
+        slideFrame.contentWindow.showSlide(clamped - 1);
+      }
+    }
+
+    document.getElementById("slidePrevBtn").onclick = () => syncSlidePreview(state.currentSlideNum - 1);
+    document.getElementById("slideNextBtn").onclick = () => syncSlidePreview(state.currentSlideNum + 1);
+    toggleSlidePaneBtn.onclick = () => {
+      state.slideCollapsed = !state.slideCollapsed;
+      slidePane.classList.toggle("collapsed", state.slideCollapsed);
+      toggleSlidePaneBtn.textContent = state.slideCollapsed ? "展開簡報" : "收起畫面";
+      if (!state.slideCollapsed) setTimeout(scaleSlideFrame, 20);
+    };
+
     function getFilteredList() {
       const list = PACKS[state.pack] || [];
       if (state.groupFilter === "ALL") return list;
@@ -836,7 +1047,6 @@
       return str.replace(/\s*\/\s*/g, " ").replace(/\s+/g, " ").trim();
     }
 
-    // Build slide/group pills
     function renderGroupPills() {
       const list = PACKS[state.pack] || [];
       const groups = ["ALL", ...new Set(list.map(i => i.group))];
@@ -859,6 +1069,13 @@
           };
           slidePills.appendChild(btn);
         });
+        if (state.pack === "presentation") {
+          const s8 = document.createElement("button");
+          s8.className = "slide-pill";
+          s8.textContent = "S8(文獻)";
+          s8.onclick = () => syncSlidePreview(8);
+          slidePills.appendChild(s8);
+        }
       }
     }
 
@@ -866,7 +1083,6 @@
       const list = getFilteredList();
       const item = currentItem();
 
-      // Mastered count
       const masteredCount = list.filter(i => state.mastered.has(i.id)).length;
       progressText.textContent = list.length
         ? `${state.index + 1} / ${list.length} · ✓${masteredCount}`
@@ -876,6 +1092,11 @@
 
       if (!item) return;
 
+      // Sync slides.html when item has a slide number
+      if (item.slide) {
+        syncSlidePreview(item.slide);
+      }
+
       unitBadge.textContent = item.group.startsWith("S") ? `Slide ${item.group.slice(1)}` : item.group;
       tagBadge.textContent = item.tag || "口說";
 
@@ -883,7 +1104,6 @@
       masteredBtn.className = "mastered-btn" + (isMastered ? " done" : "");
       masteredBtn.textContent = isMastered ? "✓ 已練熟" : "✓ 標記熟練";
 
-      // Render English text according to mode
       enContainer.innerHTML = "";
       const kwLower = new Set((item.kw || []).map(w => w.toLowerCase()));
 
@@ -891,7 +1111,7 @@
         const plainWords = cleanSpeechText(item.en).split(/\s+/).length;
         const box = document.createElement("div");
         box.className = "blind-box";
-        box.innerHTML = `<div style="font-weight:700;color:#fff;margin-bottom:4px">🧠 盲講模式（共 ${plainWords} 字）</div><div>看下方中文直接開口講 · 點這裡偷看原文</div>`;
+        box.innerHTML = `<div style="font-weight:700;color:#fff;margin-bottom:4px">🧠 盲講模式（共 ${plainWords} 字）</div><div>搭配上方投影片＋下方中文直接開口講 · 點這裡偷看原文</div>`;
         box.onclick = () => {
           state.blindRevealed = true;
           render();
@@ -937,7 +1157,6 @@
         });
       }
 
-      // Chinese box
       zhBox.style.display = state.showZh ? "block" : "none";
       zhBox.textContent = item.zh || "（無中文翻譯）";
 
@@ -945,7 +1164,7 @@
       toggleZhBtn.textContent = state.showZh ? "中文：開" : "中文：關";
     }
 
-    // ---- Web Speech Synthesis (iOS Safari resilient) ----
+    // ---- Web Speech Synthesis ----
     let enVoice = null;
     function pickEnglishVoice() {
       if (!("speechSynthesis" in window)) return null;
@@ -1038,7 +1257,7 @@
       }
     }
 
-    // ---- Speech Recognition (跟讀評測) ----
+    // ---- Speech Recognition ----
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
     let recognition = null;
 
@@ -1146,7 +1365,7 @@
       recognition.start();
     }
 
-    // ---- Event Listeners ----
+    // ---- Events ----
     packTabs.addEventListener("click", (e) => {
       const btn = e.target.closest(".pack-tab");
       if (!btn) return;
@@ -1166,6 +1385,11 @@
       } else {
         customPanel.classList.remove("show");
       }
+
+      // Hide slide pane automatically on unrelated packs unless user wants it
+      const showSlide = state.pack === "presentation" || state.pack === "qa";
+      slidePane.style.display = showSlide ? "flex" : "none";
+      if (showSlide) setTimeout(scaleSlideFrame, 20);
 
       renderGroupPills();
       render();
@@ -1275,7 +1499,7 @@
       }
     }, { passive: true });
 
-    // Timer logic
+    // Timer
     let timerSec = 0;
     let timerId = null;
     const timerDisplay = document.getElementById("timerDisplay");
@@ -1307,6 +1531,7 @@
     };
 
     // Init
+    scaleSlideFrame();
     renderGroupPills();
     render();
   </script>
