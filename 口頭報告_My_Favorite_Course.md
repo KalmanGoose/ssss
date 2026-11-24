@@ -15,9 +15,9 @@
 Hello everyone, and Professor. My topic is my favorite course.
 Since our professor said sharing a personal project can earn bonus points, let me apologize for a quick second—I'm going to open Safari right now and show you my work!
 I have a quick question—have you ever played pickleball?
-Actually, I built a project that's in a coding competition right now—this pickleball game where you play against an Artificial Intelligence opponent.
+Actually, I built this pickleball game where you play against an Artificial Intelligence opponent—and our team just won first place, the Gold Award, at a coding competition last week!
 You can scan the QR code on the screen to try it.
-And this project is closely connected to my topic—it gave me a lot of ideas to take *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
+And this project is closely connected to my topic—it inspired me to take *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
 Here's what he said on day one: unless you know how AI actually works, you're just a user. If you understand the ideas behind it, you can build games and tools yourself.
 
 ### 【Slide 2】
@@ -72,10 +72,10 @@ Thanks for listening!
   > 因為老師說帶來個人才藝或作品可以加分，所以不好意思打擾一下——我現在要打開 Safari，展示我的作品給大家看！
 * I have a quick question—**have you ever played** pickleball? `【Unit 2.2 現在完成式：ever】`
   > 我想先問大家一個問題——你們曾經打過匹克球嗎？
-* Actually, I built a project that's in a coding competition right now—this pickleball game where you play against an Artificial Intelligence opponent. You can scan the QR code on the screen to try it.
-  > 其實我做了一個正在參加程式比賽的專題——就是這款讓你跟人工智慧對手對戰的匹克球遊戲。你們可以掃螢幕上的 QR Code 來試玩。
-* And this project is closely connected to my topic—it gave me a lot of ideas to take *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
-  > 而且這個專題跟我的報告主題有很大的關係——它給了我很多靈感發想，讓我去修臺大李宏毅教授的《生成式人工智慧與機器學習導論》。
+* Actually, I built this pickleball game where you play against an Artificial Intelligence opponent—and our team just won first place, the Gold Award, at a coding competition last week! You can scan the QR code on the screen to try it.
+  > 其實我做了這款讓你跟人工智慧對手對戰的匹克球遊戲——我們團隊上週才剛在程式比賽拿下第一名（金獎）！你們可以掃螢幕上的 QR Code 來試玩。
+* And this project is closely connected to my topic—it inspired me to take *Introduction to Generative AI and Machine Learning* by Professor Hung-yi Lee at NTU.
+  > 而且這個專題跟我的報告主題有很大的關係——就是它啟發我去修臺大李宏毅教授的《生成式人工智慧與機器學習導論》。
 * Here's what he said on day one: **unless** you know how AI actually works, you're just a user. **If** you understand the ideas behind it, you can build games and tools yourself. `【Unit 4.4 條件句：unless / if】`
   > 他在第一天講過一個重點：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。
 
