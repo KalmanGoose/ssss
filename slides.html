@@ -121,19 +121,29 @@ svg {
 }
 
 /* 7. Print one fixed-size slide per page */
+@page {
+    size: 1920px 1080px;
+    margin: 0;
+}
+
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     html,
     body {
         width: 1920px;
         height: auto;
         overflow: visible;
-        background: #fff;
+        background: #F0EBDE;
     }
 
     .deck-viewport {
         position: static;
         overflow: visible;
-        background: #fff;
+        background: #F0EBDE;
     }
 
     .deck-stage {
@@ -156,12 +166,22 @@ svg {
         page-break-after: always;
     }
 
+    .slide .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
     .slide:last-child {
         break-after: auto;
         page-break-after: auto;
     }
 
-    .deck-controls {
+    .deck-controls,
+    .edit-hotzone,
+    .edit-toggle,
+    .img-lightbox,
+    .nav-hint {
         display: none !important;
     }
 }
@@ -529,6 +549,31 @@ svg {
             font-style: italic;
             font-size: 24px;
             line-height: 1.22;
+        }
+
+        .cover-url-bar {
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid var(--ink-faint);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 16px;
+            color: var(--ink);
+        }
+
+        .cover-url-bar .url-label {
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+
+        .cover-url-bar a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         /* ===========================================
@@ -1111,6 +1156,11 @@ svg {
                             <span class="meta-value serif-em">&ldquo;Quick question: have you ever played pickleball?&rdquo;</span>
                         </div>
                     </div>
+
+                    <div class="cover-url-bar reveal d4">
+                        <span class="url-label">SLIDES URL</span>
+                        <a href="https://kalmangoose.github.io/ssss/slides.html" target="_blank" rel="noopener">https://kalmangoose.github.io/ssss/slides.html</a>
+                    </div>
                 </div>
 
                 <span class="nav-hint">Arrows / Space / 1-9 to navigate</span>
@@ -1595,6 +1645,7 @@ svg {
         <button class="ctrl-btn" id="prevBtn" type="button">&larr; Prev</button>
         <span id="counterLabel">01 / 09</span>
         <button class="ctrl-btn" id="nextBtn" type="button">Next &rarr;</button>
+        <button class="ctrl-btn" id="pdfBtn" type="button" title="Save / Download PDF (16:9)" onclick="window.print()">PDF &darr;</button>
     </div>
 
     <!-- Post-Draft Inline Edit Affordance (Hidden in Iframe) -->
