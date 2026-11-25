@@ -54,9 +54,9 @@ But I didn't give up.
 If you keep testing your code, you'll end up building cool stuff—like predicting game ratings or customizing AI images.
 If I had more time today, I'd show you the whole demo live!
 
-### 【Slide 8】（課程總結與未來規劃）
+### 【Slide 8】（課程總結與進行中專題）
 Looking back after finishing the class, it still means a lot to me—clear, fun, and hands-on.
-I haven't tried every new AI model out there yet, but I'm going to keep practicing next semester and build even more projects.
+I'm actually applying what I learned to other projects right now—I haven't finished them all yet, but I'm going to keep building and sharing more.
 My last slide has all the references I used.
 Thanks for listening!
 
@@ -142,8 +142,8 @@ Thanks for listening!
 ### 【Slide 8】
 * Looking back after finishing the class, it still means a lot to me—clear, fun, and hands-on.
   > 上完這堂課到現在回頭看，它對我還是意義很大——清楚、有趣，又能動手實作。
-* **I haven't tried** every new AI model out there **yet**, but I'm going to keep practicing next semester and build even more projects. `【Unit 2.2 現在完成式：yet ＋ Unit 4.2 未來計畫】`
-  > 我雖然還沒把市面上每種新 AI 模型都試過一遍，但我下學期會繼續練習，做出更多專題。
+* I'm actually applying what I learned to other projects right now—**I haven't finished** them all **yet**, but I'm going to keep building and sharing more. `【Unit 2.2 現在完成式：yet ＋ 進行中專題】`
+  > 我目前也正在把所學用到其他 project 當中——雖然還沒全部做完，但我會繼續打造並分享更多作品。
 * My last slide has all the references I used.
   > 最後一張投影片是我參考的資料來源。
 * Thanks for listening!
@@ -161,4 +161,4 @@ Thanks for listening!
 | **`since`** | 接「過去某時間點／事件」（Slide 3） | *...and **since** finishing the course, I've already applied so much of it...* |
 | **`already`** | 「已經」（Slide 3） | *...I'**ve already applied** so much of it to real projects.* |
 | **`never`** | 「從未」（Slide 6） | *Even if you'**ve never studied** coding before...* |
-| **`yet`** | 「尚未」（否定句尾，Slide 8） | *I **haven't tried** every new AI model out there **yet**...* |
+| **`yet`** | 「尚未」（否定句尾，Slide 8） | *...I **haven't finished** them all **yet**...* |
