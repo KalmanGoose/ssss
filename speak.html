@@ -6,6 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>My Favorite Course — 口說跟讀練習器</title>
+  <link rel="icon" href="data:," />
   <style>
     :root {
       --bg: #0b1120;
@@ -725,13 +726,13 @@
       <section class="slide-pane" id="slidePane">
         <div class="slide-bar">
           <div class="slide-bar-left">
-            <span class="slide-status" id="slideStatus">📺 投影片同步中：Slide 1 / 8</span>
+            <span class="slide-status" id="slideStatus">📺 Slide 1 / 9</span>
             <button class="mini-btn" id="slidePrevBtn" title="上一張投影片">◀</button>
             <button class="mini-btn" id="slideNextBtn" title="下一張投影片">▶</button>
           </div>
           <div class="slide-bar-left">
             <button class="mini-btn" id="toggleSlidePaneBtn">收起畫面</button>
-            <a class="mini-btn" href="slides.html" target="_blank" rel="noopener">原版簡報 ↗</a>
+            <a class="mini-btn" href="slides.html" target="_blank" rel="noopener">全螢幕簡報 ↗</a>
           </div>
         </div>
         <div class="slide-viewport" id="slideViewport">
@@ -749,7 +750,7 @@
         <main class="stage" id="stage">
           <div class="custom-panel" id="customPanel">
             <div style="font-size:12.5px;font-weight:700;color:var(--accent)">貼上想練的英文句子（每行一句，可用 | 加上中文翻譯）</div>
-            <textarea class="custom-textarea" id="customInput" placeholder="例如：&#10;Have you ever played pickleball? | 你打過匹克球嗎？&#10;I've followed this course since September. | 我從九月就開始追蹤這門課。"></textarea>
+            <textarea class="custom-textarea" id="customInput" placeholder="例如：&#10;Have you ever played pickleball? | 你打過匹克球嗎？&#10;Since finishing the class, I've already built two projects. | 上完這堂課後，我已經做出了兩個專題。"></textarea>
             <div class="custom-actions">
               <button class="chip-btn" id="customCloseBtn">收起</button>
               <button class="btn-sm" id="customSaveBtn">套用開始練習</button>
@@ -835,54 +836,55 @@
   <script>
     const PACKS = {
       presentation: [
-        { id: "p1", group: "S1", slide: 1, tag: "開場問候", en: "Hello everyone, and Professor. / My topic is my favorite course.", zh: "大家好，教授好。我的報告主題是「我最喜歡的課」。", kw: ["everyone", "Professor", "topic", "favorite", "course"] },
-        { id: "p2", group: "S1", slide: 1, tag: "作品加分", en: "Since our professor said sharing a personal project can earn bonus points, / let me apologize for a quick second— / I'm going to open Safari right now and show you my work!", zh: "因為老師說帶來個人才藝或作品可以加分，所以不好意思打擾一下——我現在要打開 Safari，展示我的作品給大家看！", kw: ["Since", "personal", "project", "bonus", "apologize", "Safari", "show"] },
-        { id: "p3", group: "S1", slide: 1, tag: "Unit 2.2: ever", en: "I have a quick question— / have you ever played pickleball?", zh: "我想先問大家一個問題——你們曾經打過匹克球嗎？", kw: ["quick", "question", "have", "ever", "played", "pickleball"] },
-        { id: "p4", group: "S1", slide: 1, tag: "金獎第一名專題", en: "Actually, I built this pickleball game where you play against an Artificial Intelligence opponent— / and our team just won first place, the Gold Award, at a coding competition last week!", zh: "其實我做了這款讓你跟人工智慧對手對戰的匹克球遊戲——我們團隊上週才剛在程式比賽拿下第一名（金獎）！", kw: ["built", "pickleball", "Artificial", "Intelligence", "won", "first", "place", "Gold", "Award"] },
-        { id: "p5", group: "S1", slide: 1, tag: "QR Code 互動", en: "You can scan the QR code on the screen to try it.", zh: "你們可以掃螢幕上的 QR Code 來試玩。", kw: ["scan", "QR", "code", "screen", "try"] },
-        { id: "p6", group: "S1", slide: 1, tag: "主題銜接", en: "And this project is closely connected to my topic— / it inspired me to take Introduction to Generative AI and Machine Learning by Professor Hung-yi Lee at NTU.", zh: "而且這個專題跟我的報告主題有很大的關係——就是它啟發我去修臺大李宏毅教授的《生成式人工智慧與機器學習導論》。", kw: ["connected", "inspired", "Generative", "AI", "Machine", "Learning", "NTU"] },
-        { id: "p7", group: "S1", slide: 1, tag: "Unit 4.4: unless / if", en: "Here's what he said on day one: / unless you know how AI actually works, you're just a user. / If you understand the ideas behind it, you can build games and tools yourself.", zh: "他在第一天講過一個重點：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。", kw: ["unless", "works", "user", "If", "understand", "build", "yourself"] },
+        { id: "p1", group: "S1", slide: 1, tag: "開場問候", en: "Hi Professor, hi everyone. / My topic is my favorite course.", zh: "教授好，大家好。我的報告主題是「我最喜歡的課」。", kw: ["Professor", "everyone", "topic", "favorite", "course"] },
+        { id: "p2", group: "S1", slide: 1, tag: "作品加分", en: "Since sharing a personal project can earn bonus points, / I just need a second— / I'm going to open Safari right now and show you what I built!", zh: "因為分享個人作品可以加分，稍微等我一秒鐘——我現在要打開 Safari 展示我做出來的專題給大家看！", kw: ["Since", "personal", "project", "bonus", "second", "Safari", "built"] },
+        { id: "p3", group: "S1", slide: 1, tag: "Unit 2.2: ever", en: "Quick question— / have you ever played pickleball?", zh: "先問大家一個小問題——你們曾經打過匹克球嗎？", kw: ["Quick", "question", "have", "ever", "played", "pickleball"] },
 
-        { id: "p8", group: "S2", slide: 2, tag: "過去完成式: had been", en: "Honestly, before I found this class, / Artificial Intelligence had been a total mystery to me.", zh: "老實說，在找到這門課以前，人工智慧對我來說完全是個謎。", kw: ["Honestly", "before", "had", "been", "mystery"] },
-        { id: "p9", group: "S2", slide: 2, tag: "Unit 3: had thought", en: "I had thought machine learning was just scary math.", zh: "我以前一直以為機器學習全都是很可怕的數學。", kw: ["had", "thought", "machine", "learning", "scary", "math"] },
-        { id: "p10", group: "S2", slide: 2, tag: "假設語氣 Type 3", en: "If I hadn't watched his videos, / I probably wouldn't have touched this field at all.", zh: "如果我當初沒看他的影片，我大概根本不會碰這個領域。", kw: ["If", "hadn't", "watched", "wouldn't", "have", "touched", "field"] },
-        { id: "p11", group: "S2", slide: 2, tag: "Unit 2: for / since / already", en: "I've followed his course for a few months now— / and since September, I've already learned so much.", zh: "我已經追蹤這門課好幾個月了——而且從九月到現在，我已經學到超多。", kw: ["followed", "for", "months", "since", "September", "already", "learned"] },
+        { id: "p4", group: "S2", slide: 2, tag: "Unit 2: just · 金獎專題", en: "Actually, I built this pickleball game where you play against an Artificial Intelligence opponent— / and our team just won first place, the Gold Award, at a coding competition last week!", zh: "其實我做了這款讓你跟人工智慧對手對戰的匹克球遊戲——我們團隊上週才剛在程式競賽拿下第一名（金獎）！", kw: ["built", "pickleball", "Artificial", "Intelligence", "just", "won", "first", "place", "Gold", "Award"] },
+        { id: "p5", group: "S2", slide: 2, tag: "海報與 QR 試玩", en: "You can scan the QR code right here to try it, / or check out our competition poster on the slide.", zh: "你們可以直接掃畫面上的 QR Code 試玩，或是看投影片上的競賽海報。", kw: ["scan", "QR", "code", "try", "poster", "slide"] },
+        { id: "p6", group: "S2", slide: 2, tag: "回扣 114-1 修課", en: "And building the Artificial Intelligence in this game goes right back to the class I took at NTU in Fall 2025— / Introduction to Generative AI and Machine Learning by Professor Hung-yi Lee.", zh: "而這款遊戲裡的人工智慧設計，正是源自我在 2025 年秋季（114-1）修過臺大李宏毅教授的《生成式人工智慧與機器學習導論》。", kw: ["Artificial", "Intelligence", "took", "Fall", "Generative", "AI", "Machine", "Learning", "NTU"] },
+        { id: "p7", group: "S2", slide: 2, tag: "Unit 4.4: unless / if", en: "Here's what stuck with me from day one: / unless you know how AI actually works, you're just a user. / If you understand the ideas behind it, you can build games and tools yourself.", zh: "他在第一堂課講過一句一直讓我印象深刻的話：除非你知道它背後怎麼運作，否則你只是個使用者；只要你懂原理，你也能自己做出遊戲跟工具。", kw: ["unless", "works", "user", "If", "understand", "build", "yourself"] },
 
-        { id: "p12", group: "S3", slide: 3, tag: "教法切入", en: "Why do I like his teaching? / He doesn't throw dry formulas at you.", zh: "我為什麼喜歡他的教法？因為他不會直接丟一堆枯燥的公式給你。", kw: ["Why", "teaching", "doesn't", "dry", "formulas"] },
-        { id: "p13", group: "S3", slide: 3, tag: "轉折引導", en: "Instead, he turns the whole thing into three simple steps with funny cartoons:", zh: "相反地，他用好笑的漫畫把整件事變成三個簡單步驟：", kw: ["Instead", "three", "simple", "steps", "cartoons"] },
-        { id: "p14", group: "S3", slide: 3, tag: "步驟 1", en: "first, / decide what \"good\" means with a loss function;", zh: "第一，用 Loss Function 決定什麼叫做「好」；", kw: ["first", "decide", "good", "loss", "function"] },
-        { id: "p15", group: "S3", slide: 3, tag: "步驟 2", en: "next, / pick a model;", zh: "接著，挑一個模型；", kw: ["next", "pick", "model"] },
-        { id: "p16", group: "S3", slide: 3, tag: "步驟 3", en: "then, / use gradient descent to slowly find the best answer.", zh: "然後，用梯度下降法慢慢找出最佳解。", kw: ["then", "gradient", "descent", "best", "answer"] },
-        { id: "p17", group: "S3", slide: 3, tag: "口語互動", en: "Pretty simple, right?", zh: "很直覺吧？", kw: ["Pretty", "simple", "right"] },
+        { id: "p8", group: "S3", slide: 3, tag: "Unit 3: had been / had thought", en: "Before taking that class, Artificial Intelligence had been a total mystery to me, / and I had thought machine learning was just scary math.", zh: "在修那門課以前，人工智慧對我來說完全是個謎，我以前也一直以為機器學習全都是很可怕的數學。", kw: ["Before", "had", "been", "mystery", "thought", "scary", "math"] },
+        { id: "p9", group: "S3", slide: 3, tag: "上完課後的轉變", en: "After finishing that class in Fall 2025, / my whole perspective completely changed.", zh: "上完這堂課之後，我的整個想法完全改觀了。", kw: ["After", "finishing", "class", "perspective", "changed"] },
+        { id: "p10", group: "S3", slide: 3, tag: "假設語氣 Type 3", en: "Honestly, if I hadn't taken his lectures back then, / I probably wouldn't have built that game at all.", zh: "老實說，如果我當初沒有去聽他的課，現在大概根本做不出那款遊戲。", kw: ["if", "hadn't", "taken", "wouldn't", "have", "built", "game"] },
+        { id: "p11", group: "S3", slide: 3, tag: "Unit 2: for / since / already", en: "I've kept rewatching his talks for over a year now— / and since finishing the course, I've already applied so much of it to real projects.", zh: "我已經反覆回看他的演講超過一年了——而且從上完課到現在，我已經把許多觀念實際用到自己的專題上。", kw: ["for", "year", "since", "finishing", "already", "applied", "projects"] },
 
-        { id: "p18", group: "S4", slide: 4, tag: "圖表引導", en: "Look at this loss curve from class.", zh: "你看課堂上這張 Loss 曲線圖。", kw: ["Look", "loss", "curve", "class"] },
-        { id: "p19", group: "S4", slide: 4, tag: "Unit 4.4: when + if", en: "When you train a model, / if the line goes down like this, / it means the computer is actually learning.", zh: "當你在訓練模型時，如果線像這樣往下降，代表電腦真的在學習。", kw: ["When", "train", "if", "goes", "down", "learning"] },
-        { id: "p20", group: "S4", slide: 4, tag: "條件句: if", en: "If the line gets stuck and stays flat, something is off— / so you tweak your settings and try again.", zh: "如果線卡住不動變平了，就代表哪裡怪怪的——這時就微調設定再試一次。", kw: ["stuck", "flat", "off", "tweak", "settings", "try"] },
-        { id: "p21", group: "S4", slide: 4, tag: "Unit 2.3: make mistakes / do your best", en: "You'll definitely make mistakes at first— / that's normal, / you just do your best and fix them step by step.", zh: "一開始一定會出錯——這很正常，只要盡力做並一步步修正就好。", kw: ["make", "mistakes", "normal", "do", "your", "best", "step"] },
+        { id: "p12", group: "S4", slide: 4, tag: "教法切入", en: "Why do I like his teaching? / He doesn't throw dry formulas at you.", zh: "我為什麼喜歡他的教法？因為他不會直接丟一堆枯燥的公式給你。", kw: ["Why", "teaching", "doesn't", "dry", "formulas"] },
+        { id: "p13", group: "S4", slide: 4, tag: "轉折引導", en: "Instead, he turns the whole thing into three simple steps with funny cartoons:", zh: "相反地，他用好笑的漫畫把整件事變成三個簡單步驟：", kw: ["Instead", "three", "simple", "steps", "cartoons"] },
+        { id: "p14", group: "S4", slide: 4, tag: "步驟 1", en: "first, / decide what \"good\" means with a loss function;", zh: "第一，用 Loss Function 決定什麼叫做「好」；", kw: ["first", "decide", "good", "loss", "function"] },
+        { id: "p15", group: "S4", slide: 4, tag: "步驟 2", en: "next, / pick a model;", zh: "接著，挑一個模型；", kw: ["next", "pick", "model"] },
+        { id: "p16", group: "S4", slide: 4, tag: "步驟 3", en: "then, / use gradient descent to slowly find the best answer.", zh: "然後，用梯度下降法慢慢找出最佳解。", kw: ["then", "gradient", "descent", "best", "answer"] },
+        { id: "p17", group: "S4", slide: 4, tag: "口語互動", en: "Pretty simple, right?", zh: "很直覺吧？", kw: ["Pretty", "simple", "right"] },
 
-        { id: "p22", group: "S5", slide: 5, tag: "現代 AI 應用", en: "He also connects these basics straight to modern Artificial Intelligence— / like how Large Language Models learn from huge text, / and how image models make pictures.", zh: "他也會把這些基礎直接連到現代人工智慧——像是大型語言模型怎麼從海量文字學習，以及影像模型怎麼生圖。", kw: ["connects", "modern", "Large", "Language", "Models", "image", "pictures"] },
-        { id: "p23", group: "S5", slide: 5, tag: "現在完成式: has put", en: "Plus, he's put every single lecture on YouTube for free.", zh: "而且他把每一堂課都免費放在 YouTube 上。", kw: ["Plus", "put", "every", "lecture", "YouTube", "free"] },
-        { id: "p24", group: "S5", slide: 5, tag: "Unit 2.2: never / just", en: "Even if you've never studied coding before, / or you've just started learning, / you can still pick it up anytime.", zh: "就算你以前從沒學過寫程式，或是才剛開始學，隨時都還是能上手。", kw: ["never", "studied", "coding", "just", "started", "pick", "anytime"] },
+        { id: "p18", group: "S5", slide: 5, tag: "圖表引導", en: "Look at this loss curve from class.", zh: "你看課堂上這張 Loss 曲線圖。", kw: ["Look", "loss", "curve", "class"] },
+        { id: "p19", group: "S5", slide: 5, tag: "Unit 4.4: when + if", en: "When you train a model, / if the line goes down like this, / it means the computer is actually learning.", zh: "當你在訓練模型時，如果線像這樣往下降，代表電腦真的在學習。", kw: ["When", "train", "if", "goes", "down", "learning"] },
+        { id: "p20", group: "S5", slide: 5, tag: "條件句: if", en: "If the line gets stuck and stays flat, something is off— / so you tweak your settings and try again.", zh: "如果線卡住不動變平了，就代表哪裡怪怪的——這時就微調設定再試一次。", kw: ["stuck", "flat", "off", "tweak", "settings", "try"] },
+        { id: "p21", group: "S5", slide: 5, tag: "Unit 2.3: make mistakes / do your best", en: "You'll definitely make mistakes at first— / that's normal, / you just do your best and fix them step by step.", zh: "一開始一定會出錯——這很正常，只要盡力做並一步步修正就好。", kw: ["make", "mistakes", "normal", "do", "your", "best", "step"] },
 
-        { id: "p25", group: "S6", slide: 6, tag: "過去完成式: had never had", en: "Before this class, I had never had the chance to train a real model myself.", zh: "上這門課以前，我從來沒機會自己訓練一個真正的模型。", kw: ["Before", "had", "never", "had", "chance", "train", "myself"] },
-        { id: "p26", group: "S6", slide: 6, tag: "心情轉折", en: "My first few tries failed, / and yeah, I wanted to quit.", zh: "前幾次嘗試都失敗，老實講我那時超想放棄。", kw: ["first", "tries", "failed", "wanted", "quit"] },
-        { id: "p27", group: "S6", slide: 6, tag: "Unit 4.3: give up", en: "But I didn't give up.", zh: "但我撐下來沒有放棄。", kw: ["didn't", "give", "up"] },
-        { id: "p28", group: "S6", slide: 6, tag: "First Conditional + end up", en: "If you keep testing your code, / you'll end up building cool stuff— / like predicting game ratings or customizing AI images.", zh: "只要你不斷測試程式，最後就能做出很酷的東西——像是預測遊戲評分，或客製化 AI 生成圖片。", kw: ["keep", "testing", "end", "up", "building", "predicting", "customizing"] },
-        { id: "p29", group: "S6", slide: 6, tag: "假設語氣 Type 2", en: "If I had more time today, / I'd show you the whole demo live!", zh: "如果今天時間更充裕的話，我就直接現場展示整個作品給大家看！", kw: ["If", "had", "more", "time", "I'd", "show", "live"] },
+        { id: "p22", group: "S6", slide: 6, tag: "現代 AI 應用", en: "He also connected these basics straight to modern Artificial Intelligence— / like how Large Language Models learn from huge text, / and how image models generate pictures.", zh: "他也把這些基礎直接連到現代人工智慧——像是大型語言模型怎麼從海量文字學習，以及影像模型怎麼生圖。", kw: ["connected", "modern", "Large", "Language", "Models", "image", "pictures"] },
+        { id: "p23", group: "S6", slide: 6, tag: "現在完成式: has put", en: "Plus, he's put every single lecture on YouTube for free.", zh: "而且他把每一堂課都免費放在 YouTube 上。", kw: ["Plus", "put", "every", "lecture", "YouTube", "free"] },
+        { id: "p24", group: "S6", slide: 6, tag: "Unit 2.2: never / just", en: "Even if you've never studied coding before, / or you've just started learning, / you can still pick it up anytime.", zh: "就算你以前從沒學過寫程式，或是才剛開始學，隨時都還是能上手。", kw: ["never", "studied", "coding", "just", "started", "pick", "anytime"] },
 
-        { id: "p30", group: "S7", slide: 7, tag: "課程總結", en: "That's why this class means a lot to me— / it's clear, fun, and hands-on.", zh: "這就是為什麼這門課對我意義很大——它清楚、有趣，又能動手實作。", kw: ["means", "clear", "fun", "hands-on"] },
-        { id: "p31", group: "S7", slide: 7, tag: "Unit 2.2: yet + 未來計畫", en: "I haven't finished all the homework yet, / but I'm going to keep practicing next semester and build more projects.", zh: "我雖然還沒做完所有的作業，但我下學期會繼續練習，做出更多專題。", kw: ["haven't", "finished", "yet", "going", "practicing", "next", "semester"] },
-        { id: "p32", group: "S7", slide: 7, tag: "參考文獻預告", en: "My last slide has all the references I used.", zh: "最後一張投影片是我參考的資料來源。", kw: ["last", "slide", "references", "used"] },
-        { id: "p33", group: "S7", slide: 7, tag: "致謝收尾", en: "Thanks for listening!", zh: "謝謝大家！", kw: ["Thanks", "listening"] }
+        { id: "p25", group: "S7", slide: 7, tag: "過去完成式: had never had", en: "Before taking his course, I had never had the chance to train a real model myself.", zh: "修他的課以前，我從來沒機會自己訓練一個真正的模型。", kw: ["Before", "had", "never", "had", "chance", "train", "myself"] },
+        { id: "p26", group: "S7", slide: 7, tag: "心情轉折", en: "My first few tries failed, / and yeah, I wanted to quit.", zh: "前幾次嘗試都失敗，老實講我那時超想放棄。", kw: ["first", "tries", "failed", "wanted", "quit"] },
+        { id: "p27", group: "S7", slide: 7, tag: "Unit 4.3: give up", en: "But I didn't give up.", zh: "但我撐下來沒有放棄。", kw: ["didn't", "give", "up"] },
+        { id: "p28", group: "S7", slide: 7, tag: "First Conditional + end up", en: "If you keep testing your code, / you'll end up building cool stuff— / like predicting game ratings or customizing AI images.", zh: "只要你不斷測試程式，最後就能做出很酷的東西——像是預測遊戲評分，或客製化 AI 生成圖片。", kw: ["keep", "testing", "end", "up", "building", "predicting", "customizing"] },
+        { id: "p29", group: "S7", slide: 7, tag: "假設語氣 Type 2", en: "If I had more time today, / I'd show you the whole demo live!", zh: "如果今天時間更充裕的話，我就直接現場展示整個作品給大家看！", kw: ["If", "had", "more", "time", "I'd", "show", "live"] },
+
+        { id: "p30", group: "S8", slide: 8, tag: "修課總結", en: "Looking back after finishing the class, it still means a lot to me— / clear, fun, and hands-on.", zh: "上完這堂課到現在回頭看，它對我還是意義很大——清楚、有趣，又能動手實作。", kw: ["finishing", "means", "clear", "fun", "hands-on"] },
+        { id: "p31", group: "S8", slide: 8, tag: "Unit 2.2: yet + 未來計畫", en: "I haven't tried every new AI model out there yet, / but I'm going to keep practicing next semester and build even more projects.", zh: "我雖然還沒把市面上每種新 AI 模型都試過一遍，但我下學期會繼續練習，做出更多專題。", kw: ["haven't", "tried", "yet", "going", "practicing", "next", "semester"] },
+        { id: "p32", group: "S8", slide: 8, tag: "參考文獻預告", en: "My last slide has all the references I used.", zh: "最後一張投影片是我參考的資料來源。", kw: ["last", "slide", "references", "used"] },
+        { id: "p33", group: "S8", slide: 8, tag: "致謝收尾", en: "Thanks for listening!", zh: "謝謝大家！", kw: ["Thanks", "listening"] }
       ],
 
       qa: [
-        { id: "q1", group: "QA", slide: 1, tag: "教授提問應對", en: "That's a great question! / Let me explain how the AI opponent decides where to hit the ball.", zh: "問得很好！讓我解釋一下 AI 對手是怎麼決定把球打到哪裡的。", kw: ["great", "question", "explain", "opponent", "decides"] },
-        { id: "q2", group: "QA", slide: 1, tag: "時間與開發過程", en: "I've been working on this pickleball game since October, / and I tested different physics settings until it felt natural.", zh: "我從十月就一直在做這款匹克球遊戲，而且我測試了各種物理參數，直到手感很自然為止。", kw: ["working", "since", "October", "tested", "physics", "natural"] },
-        { id: "q3", group: "QA", slide: 6, tag: "克服困難", en: "The hardest part was balancing the AI difficulty— / if it's too fast, players can't return any shots.", zh: "最難的部分是調整 AI 難度——如果太快的話，玩家根本接不到球。", kw: ["hardest", "balancing", "difficulty", "too", "fast", "return"] },
-        { id: "q4", group: "QA", slide: 1, tag: "邀請同學試玩", en: "Feel free to scan the QR code after class! / It runs right inside your phone's browser—no download needed.", zh: "下課後歡迎隨時掃 QR Code 玩看看！直接在手機瀏覽器就能跑，不用下載。", kw: ["Feel", "free", "scan", "runs", "browser", "download"] },
-        { id: "q5", group: "QA", slide: 8, tag: "文獻與課程連結", en: "What I learned from Professor Lee helped me see AI as a tool I can actually shape, / not just a black box.", zh: "我在李教授課上學到的東西，讓我把 AI 看成一個能親手改造的工具，而不只是黑盒子。", kw: ["learned", "shape", "black", "box"] },
-        { id: "q6", group: "QA", slide: 8, tag: "聽不清楚時應對", en: "Sorry, could you say that one more time? / I didn't quite catch the last part.", zh: "不好意思，可以請你再說一次嗎？我剛才沒聽清楚最後一句。", kw: ["Sorry", "say", "one", "more", "time", "catch"] }
+        { id: "q1", group: "QA", slide: 2, tag: "教授提問應對", en: "That's a great question! / Let me explain how the AI opponent decides where to hit the ball.", zh: "問得很好！讓我解釋一下 AI 對手是怎麼決定把球打到哪裡的。", kw: ["great", "question", "explain", "opponent", "decides"] },
+        { id: "q2", group: "QA", slide: 2, tag: "時間與開發過程", en: "I've been working on this pickleball game since October, / and I tested different physics settings until it felt natural.", zh: "我從十月就一直在做這款匹克球遊戲，而且我測試了各種物理參數，直到手感很自然為止。", kw: ["working", "since", "October", "tested", "physics", "natural"] },
+        { id: "q3", group: "QA", slide: 7, tag: "克服困難", en: "The hardest part was balancing the AI difficulty— / if it's too fast, players can't return any shots.", zh: "最難的部分是調整 AI 難度——如果太快的話，玩家根本接不到球。", kw: ["hardest", "balancing", "difficulty", "too", "fast", "return"] },
+        { id: "q4", group: "QA", slide: 2, tag: "邀請同學試玩", en: "Feel free to scan the QR code after class! / It runs right inside your phone's browser—no download needed.", zh: "下課後歡迎隨時掃 QR Code 玩看看！直接在手機瀏覽器就能跑，不用下載。", kw: ["Feel", "free", "scan", "runs", "browser", "download"] },
+        { id: "q5", group: "QA", slide: 9, tag: "文獻與課程連結", en: "What I learned from Professor Lee helped me see AI as a tool I can actually shape, / not just a black box.", zh: "我在李教授課上學到的東西，讓我把 AI 看成一個能親手改造的工具，而不只是黑盒子。", kw: ["learned", "shape", "black", "box"] },
+        { id: "q6", group: "QA", slide: 9, tag: "聽不清楚時應對", en: "Sorry, could you say that one more time? / I didn't quite catch the last part.", zh: "不好意思，可以請你再說一次嗎？我剛才沒聽清楚最後一句。", kw: ["Sorry", "say", "one", "more", "time", "catch"] }
       ],
 
       daily: [
@@ -993,15 +995,7 @@
         if (doc && doc.head) {
           const style = doc.createElement("style");
           style.textContent = `
-            .controls, .progress-track { display: none !important; }
-            .deck { padding: 0 !important; width: 1280px !important; height: 720px !important; background: #0f172a !important; }
-            .slide {
-              width: 1280px !important;
-              height: 720px !important;
-              max-height: 720px !important;
-              border-radius: 0 !important;
-              padding: 36px 46px !important;
-            }
+            .deck-controls, .controls, .progress-track, .edit-hotzone, .edit-toggle, .nav-hint { display: none !important; }
           `;
           doc.head.appendChild(style);
         }
@@ -1012,9 +1006,9 @@
     });
 
     function syncSlidePreview(slideNum) {
-      const clamped = Math.max(1, Math.min(8, slideNum || 1));
+      const clamped = Math.max(1, Math.min(9, slideNum || 1));
       state.currentSlideNum = clamped;
-      slideStatus.textContent = `📺 Slide ${clamped} / 8`;
+      slideStatus.textContent = `📺 Slide ${clamped} / 9`;
       if (state.slideReady && slideFrame.contentWindow && typeof slideFrame.contentWindow.showSlide === "function") {
         slideFrame.contentWindow.showSlide(clamped - 1);
       }
@@ -1070,11 +1064,11 @@
           slidePills.appendChild(btn);
         });
         if (state.pack === "presentation") {
-          const s8 = document.createElement("button");
-          s8.className = "slide-pill";
-          s8.textContent = "S8(文獻)";
-          s8.onclick = () => syncSlidePreview(8);
-          slidePills.appendChild(s8);
+          const s9 = document.createElement("button");
+          s9.className = "slide-pill";
+          s9.textContent = "S9(文獻)";
+          s9.onclick = () => syncSlidePreview(9);
+          slidePills.appendChild(s9);
         }
       }
     }
